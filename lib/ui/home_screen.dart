@@ -1,6 +1,6 @@
-import 'package:clean_architecture/data/api_provider.dart';
+import 'package:clean_architecture/data/pixabay_api_provider.dart';
 import 'package:clean_architecture/model/Photo.dart';
-import 'package:clean_architecture/widget/photo_widget.dart';
+import 'package:clean_architecture/ui/widget/photo_widget.dart';
 import 'package:flutter/material.dart';
 
 // 작업 #1.
@@ -18,15 +18,21 @@ import 'package:flutter/material.dart';
 // 기존 PixabayApi 에서 작업이 끝낸 데이터를, HomeScreen 이 가지고 있는 변수에 담아
 // 상태를 새로 고침하여 표시하고 있었으나, PixabayProvider 가 자체적으로 Stream data 를
 // 가지도록 하고, Provider 쪽에서 네트워크 함수 처리와 동시에 Stream 데이터를 갱신 함으로서
-// Home screen 은 Stream builder 를 통해, 변화만 감지하도록 수정.
-// 이로서 HomeScreen 의 상태 Widget 도 기존 StatefulWidget 에서 StatelessWidget 변경.
+// Home screen 은 Stream builder 를 통해, 변화만 감지하도록 수정 함으로서,
+// HomeScreen 은 오롯이 화면에 관한 코드만 가지게 있도록 됐음.
+// 그리고 HomeScreen 의 상태 Widget 도 기존 StatefulWidget 에서 StatelessWidget 변경.
+
+// 작업 #4.
+// PixabayAPi 에서 관리 되고 있는 Stream 구문들을 별도의 view model class 로
+// 분기 처리하여 MVVM 패턴 적용, 또 pixabay api class 가 pixabay api repository 를 상속하게 함으로서,
+// 기능 과 정의를 구분하여 관리.
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final pixabayApiProvider = PixabayApiProvider.of(context);
+    final viewModel = PixabayApiProvider.of(context).viewModel;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Search for images'),
@@ -45,7 +51,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               onSubmitted: (String query) {
-                pixabayApiProvider.fetch(query);
+                viewModel.fetch(query);
               },
               decoration: const InputDecoration(
                 suffixIcon: Icon(Icons.search),
@@ -56,7 +62,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           StreamBuilder<List<Photo>>(
-            stream: pixabayApiProvider.photoStream,
+            stream: viewModel.photoStream,
             builder: (BuildContext context, snapshot) {
               if (!snapshot.hasData) {
                 return const CircularProgressIndicator();

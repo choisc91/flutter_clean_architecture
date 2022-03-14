@@ -72,6 +72,14 @@ class Photo {
     userImageURL = json['userImageURL'];
   }
 
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Photo && runtimeType == other.runtimeType && id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
+
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
     _data['id'] = id;
