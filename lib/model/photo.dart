@@ -106,4 +106,9 @@ class Photo {
     _data['userImageURL'] = userImageURL;
     return _data;
   }
+
+  @override
+  String toString() {
+    return 'Photo{id: $id}';
+  }
 }
