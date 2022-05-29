@@ -16,11 +16,13 @@ dependencies:
   http: ^0.13.4
   provider: ^6.0.2
 
-  # Json 모델 클래스를
+  # Json 모델 클래스를 정의하는 패키지.
   json_annotation: ^4.5.0
 
   # hashcode 및 == 를 간단하게 사용할 수 있게 해주는 패키지.
   equatable: ^2.0.3
+
+  freezed_annotation: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +32,7 @@ dev_dependencies:
   mockito: ^5.1.0
   build_runner: ^2.1.8
   json_serializable: ^6.2.0
+  freezed: ^2.0.3+1
 
 flutter:
   uses-material-design: true
