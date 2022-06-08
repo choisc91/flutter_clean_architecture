@@ -1,5 +1,5 @@
-import 'package:clean_architecture/model/Photo.dart';
+import 'package:clean_architecture/model/picture.dart';
 
 abstract class PixabayApiRepository {
-  Future<List<Photo>> fetch(String query);
+  Future<List<Picture>> fetch(String query);
 }

@@ -3,6 +3,7 @@ import 'package:clean_architecture/data/pixabay_api_provider.dart';
 import 'package:clean_architecture/ui/home_screen.dart';
 import 'package:clean_architecture/ui/home_view_model.dart';
 import 'package:flutter/material.dart';
+
 // MVVM 작업 #1.
 // 기존 PixabayApi 인스턴스를 HomeScreen 이 가지고 있어 페이지 자체가 Api 없이는 돌아가지 않아,
 // 외부에서 페이지를 생성하는 시점에 인스턴스를 전달해 줌으로서 이 둘의 의존성을 분리.

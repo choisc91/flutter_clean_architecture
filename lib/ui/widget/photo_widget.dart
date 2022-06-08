@@ -1,8 +1,8 @@
-import 'package:clean_architecture/model/Photo.dart';
+import 'package:clean_architecture/model/picture.dart';
 import 'package:flutter/material.dart';
 
 class PhotoWidget extends StatelessWidget {
-  final Photo data;
+  final Picture data;
 
   const PhotoWidget({Key? key, required this.data}) : super(key: key);
 

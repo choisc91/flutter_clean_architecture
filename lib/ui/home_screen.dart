@@ -1,5 +1,5 @@
 import 'package:clean_architecture/data/pixabay_api_provider.dart';
-import 'package:clean_architecture/model/Photo.dart';
+import 'package:clean_architecture/model/picture.dart';
 import 'package:clean_architecture/ui/widget/photo_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          StreamBuilder<List<Photo>>(
+          StreamBuilder<List<Picture>>(
             stream: viewModel.photoStream,
             builder: (BuildContext context, snapshot) {
               if (!snapshot.hasData) {
