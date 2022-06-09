@@ -1,10 +1,44 @@
+import 'dart:async';
+
 import 'package:clean_architecture/presentation/home/components/photo_widget.dart';
 import 'package:clean_architecture/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  //
+  StreamSubscription? _subscription;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // todo, 모양새 빠짐.
+    Future.microtask(() {
+      final viewModel = context.read<HomeViewModel>();
+      _subscription = viewModel.eventCtrl.listen((event) {
+        event.when(
+          showMessage: (message) {
+            final snackBar = SnackBar(content: Text(message));
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+        );
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _subscription?.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
