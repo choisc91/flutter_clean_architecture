@@ -1,5 +1,4 @@
-import 'package:clean_architecture/data/pixabay_api.dart';
-import 'package:clean_architecture/model/picture.dart';
+import 'package:clean_architecture/data/repository/picture_api_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;

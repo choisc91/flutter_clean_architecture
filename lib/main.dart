@@ -1,7 +1,6 @@
-import 'package:clean_architecture/data/pixabay_api.dart';
-import 'package:clean_architecture/data/pixabay_api_provider.dart';
-import 'package:clean_architecture/ui/home_screen.dart';
-import 'package:clean_architecture/ui/home_view_model.dart';
+import 'package:clean_architecture/data/repository/picture_api_repository_impl.dart';
+import 'package:clean_architecture/presentation/home/home_screen.dart';
+import 'package:clean_architecture/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider(
-        create: (_) => HomeViewModel(PixabayApi()),
+        create: (_) => HomeViewModel(PictureApiRepositoryImpl()),
         child: const HomeScreen(),
       ),
     );

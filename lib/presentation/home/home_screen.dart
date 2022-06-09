@@ -1,7 +1,5 @@
-import 'package:clean_architecture/data/pixabay_api_provider.dart';
-import 'package:clean_architecture/model/picture.dart';
-import 'package:clean_architecture/ui/home_view_model.dart';
-import 'package:clean_architecture/ui/widget/photo_widget.dart';
+import 'package:clean_architecture/presentation/home/components/photo_widget.dart';
+import 'package:clean_architecture/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
