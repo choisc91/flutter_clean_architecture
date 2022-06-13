@@ -5,7 +5,9 @@ import 'package:clean_architecture/domain/model/picture.dart';
 import 'package:http/http.dart' as http;
 
 class PictureApiRepositoryImpl implements PixabayApiRepository {
-  final _api = PixabayApi(http.Client());
+  final PixabayApi _api;
+
+  PictureApiRepositoryImpl(this._api);
 
   @override
   Future<Result<List<Picture>>> fetch(String query) async {
