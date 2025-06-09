@@ -1,38 +1,38 @@
 # 🧼 Flutter Clean Architecture Sample
 
-Pixabay API를 통해 이미지를 검색하고 화면에 표시하는 간단한 앱으로,  
-**Flutter + Provider + Freezed**를 사용해 클린 아키텍처 구조를 구현한 예제입니다.
+A simple app that searches and displays images using the Pixabay API,  
+implemented with a clean architecture structure using **Flutter + Provider + Freezed**.
 
 ---
 
-## ⚙️ 개발 환경
+## ⚙️ Development Environment
 
 - Flutter SDK: `>=2.16.1 <3.0.0`
-- 주요 라이브러리:
-  - `provider` for 상태 관리 및 DI
-  - `freezed`, `json_serializable` for 데이터 모델
-  - `http` for API 통신
+- Key Libraries:
+  - `provider` for state management and dependency injection
+  - `freezed`, `json_serializable` for data modeling
+  - `http` for API communication
 
 ---
 
-## 📌 참고 문서
+## 📌 References
 
-- [Freezed 공식 문서](https://pub.dev/packages/freezed)  
-- [Provider 공식 문서](https://pub.dev/packages/provider)  
-- [Pixabay API 문서](https://pixabay.com/api/docs/)  
-
----
-
-## 🎯 프로젝트 목적
-
-- 클린 아키텍처 설계 학습 (data, domain, presentation 계층 분리)
-- Provider 기반의 수동 DI 구조 구현
-- `freezed`를 이용한 immutable 모델 및 상태 표현
-- `http` 패키지를 이용한 REST API 호출과 오류 처리
+- [Freezed Documentation](https://pub.dev/packages/freezed)  
+- [Provider Documentation](https://pub.dev/packages/provider)  
+- [Pixabay API Docs](https://pixabay.com/api/docs/)  
 
 ---
 
-## 🚀 실행 방법
+## 🎯 Project Goals
+
+- Learn clean architecture design (separating data, domain, and presentation layers)
+- Implement manual dependency injection using Provider
+- Use `freezed` for immutable models and state representation
+- Handle REST API requests and errors using the `http` package
+
+---
+
+## 🚀 How to Run
 
 ```bash
 git clone https://github.com/your-repo/flutter-clean-architecture-sample.git
